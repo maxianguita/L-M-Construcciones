@@ -1,7 +1,7 @@
 import { memo } from "react";
 import Carrousel from "./Carrousel";
 import Banner from "./Banner";
-import FloatingWhatsApp from "../components/FloatingWhatsApp";
+import FloatingWhatsApp from "../components/FloatingWhatsapp";
 import Section from "./Section";
 import Image from "../assets/heroimagen.jpg"
 
