@@ -15,7 +15,6 @@ export default function App() {
     <BrowserRouter>
      
       <Navbar />
-
       {/* Rutas */}
       <Routes>
         <Route path="/" element={<Home />} />
