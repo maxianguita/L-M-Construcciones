@@ -8,7 +8,8 @@
     "types": ["vite/client"],
     "skipLibCheck": true,
 
-    /* Bundler mode */
+    /* Configuraciones para proyectos mixtos JS/TS */
+    "allowJs": true,          // <--- 🔑 AÑADE ESTA LÍNEA CLAVE
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
@@ -24,5 +25,9 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
+  
   "include": ["src"]
+  
+  // Opcional: Si lo anterior no funciona, añade esta línea para forzar que TS lea específicamente los archivos JSX
+  // "include": ["src", "src/**/*.jsx"] 
 }
