@@ -1,6 +1,6 @@
 import { memo, useState } from "react"; 
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../assets/logo.png";
+import Logo from "../assets/Logo.png";
 import { X, Menu } from 'lucide-react'; 
 
 const Navbar = () => {
