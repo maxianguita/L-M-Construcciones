@@ -47,13 +47,13 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li>📍 Buenos Aires, Argentina</li>
             <li>📞 +54 9 11 3035-2067</li>
-            <li>✉️ mylconstrucciones@gmail.com</li>
+            <li>✉️ lymconstrucciones.7@gmail.com</li>
           </ul>
         <div className="flex gap-5 mt-4 ">
     
     {/* ÍCONO DE INSTAGRAM */}
     <a
-        href="https://www.instagram.com"
+        href="https://www.instagram.com/lymc.onstru7"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
@@ -69,7 +69,7 @@ const Footer = () => {
 
     {/* ÍCONO DE FACEBOOK */}
     <a
-        href="https://facebook.com"
+        href="https://www.facebook.com/profile.php?id=61582992600246"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Facebook"

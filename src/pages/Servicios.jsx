@@ -3,7 +3,7 @@ import { memo } from 'react';
 const Servicios = () => {
   return (
     // Contenedor principal: Fondo gris claro y padding superior para el espacio del Navbar
-    <main className="min-h-screen bg-gray-100 pt-24 pb-16">
+    <main className="min-h-screen bg-gray-100 pt-24 pb-16 mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Encabezado Principal */}
@@ -96,7 +96,7 @@ const Servicios = () => {
                 Contáctanos hoy mismo para obtener una cotización sin compromiso y llevar tu obra al siguiente nivel.
             </p>
             <a 
-                href="#contacto" 
+                href="/contact" 
                 className="bg-amber-500 text-gray-900 font-black py-3 px-10 rounded-md hover:bg-amber-600 transition duration-300 text-lg shadow-lg"
             >
                 Solicitar Cotización

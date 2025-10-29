@@ -43,7 +43,7 @@ const Navbar = () => {
             className="h-16 w-auto object-contain" 
           />
           <span className="text-white font-black text-xl tracking-wide">
-            L&M <span className="text-amber-500">CONSTR.</span>
+            L&M <span className="text-amber-500">CONSTRUCCIONES</span>
           </span>
         </Link>
 

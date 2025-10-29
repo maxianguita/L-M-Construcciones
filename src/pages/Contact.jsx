@@ -1,6 +1,9 @@
 import { memo, useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { Send, PhoneCall } from "lucide-react";
+import emailjs from "@emailjs/browser"; // 👈 Import real de EmailJS
 
+// 🔹 Tus credenciales reales de EmailJS
+// ⚠️ Reemplazá estos valores con los que tenés en tu cuenta de EmailJS
 const SERVICE_ID = "tu_service_id";
 const TEMPLATE_ID = "tu_template_id";
 const PUBLIC_KEY = "tu_public_key";
@@ -15,75 +18,128 @@ const Contact = () => {
     setStatus("sending");
 
     try {
+      // Envío real del formulario a través de EmailJS
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
       setStatus("ok");
       formRef.current.reset();
     } catch (err) {
-      console.error(err);
+      console.error("Error al enviar el formulario:", err);
       setStatus("error");
     }
   };
 
+  const isSending = status === "sending";
+
   return (
-    <section className="min-h-screen bg-gray-50 flex items-center justify-center py-20 px-6">
-      <form
-        ref={formRef}
-        onSubmit={onSubmit}
-        className="w-full max-w-md bg-white p-8 rounded-xl shadow-sm space-y-5"
-      >
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Nombre
-          </label>
-          <input
-            name="nombre"
-            required
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-400"
-          />
+    <section id="contacto" className="py-20 bg-gray-50 font-sans mt-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Encabezado */}
+        <div className="text-center mb-12">
+          <PhoneCall className="w-8 h-8 mx-auto text-blue-700 mb-2" />
+          <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl tracking-tight">
+            Contáctanos
+          </h2>
+          <p className="mt-4 text-xl text-gray-500 max-w-2xl mx-auto">
+            Inicia tu proyecto hoy. Rellena el formulario y nuestro equipo te responderá en menos de 24 horas.
+          </p>
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            required
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-400"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Mensaje
-          </label>
-          <textarea
-            name="mensaje"
-            rows={4}
-            required
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-400"
-          />
-        </div>
-
-        <button
-          disabled={status === "sending"}
-          className="w-full bg-yellow-500 text-white py-3 rounded-lg font-medium hover:bg-yellow-600 transition"
+        {/* Formulario */}
+        <form
+          ref={formRef}
+          onSubmit={onSubmit}
+          className="w-full bg-white p-8 md:p-10 rounded-xl shadow-2xl border border-gray-100 space-y-6"
         >
-          {status === "sending" ? "Enviando..." : "Enviar mensaje"}
-        </button>
+          {/* Campo oculto con la hora */}
+          <input type="hidden" name="tiempo" value={new Date().toLocaleString()} />
 
-        {status === "ok" && (
-          <p className="text-green-600 text-sm mt-2">
-            ¡Mensaje enviado! Te responderemos pronto.
-          </p>
-        )}
-        {status === "error" && (
-          <p className="text-red-600 text-sm mt-2">
-            Hubo un problema al enviar. Probá de nuevo.
-          </p>
-        )}
-      </form>
+          {/* Nombre */}
+          <div>
+            <label htmlFor="nombre" className="block text-sm font-semibold text-gray-700 mb-1">
+              Nombre Completo
+            </label>
+            <input
+              id="nombre"
+              name="nombre"
+              type="text"
+              required
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 
+                         focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
+                         transition duration-150 shadow-sm"
+            />
+          </div>
+
+          {/* Correo */}
+          <div>
+            <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">
+              Correo Electrónico
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 
+                         focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
+                         transition duration-150 shadow-sm"
+            />
+          </div>
+
+          {/* Mensaje */}
+          <div>
+            <label htmlFor="mensaje" className="block text-sm font-semibold text-gray-700 mb-1">
+              ¿En qué podemos ayudarte?
+            </label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows={5}
+              required
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 
+                         focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
+                         transition duration-150 shadow-sm"
+            />
+          </div>
+
+          {/* Botón */}
+          <button
+            type="submit"
+            disabled={isSending}
+            className={`w-full py-3 rounded-lg font-bold text-lg transition duration-300 
+                        flex items-center justify-center space-x-2 
+                        ${
+                          isSending
+                            ? "bg-blue-300 text-white cursor-not-allowed"
+                            : "bg-blue-700 text-white hover:bg-blue-800 shadow-md hover:shadow-lg"
+                        }`}
+          >
+            {isSending ? (
+              <>
+                <Send className="w-5 h-5 animate-pulse" />
+                <span>Enviando...</span>
+              </>
+            ) : (
+              <>
+                <Send className="w-5 h-5" />
+                <span>Enviar Solicitud</span>
+              </>
+            )}
+          </button>
+
+          {/* Estado */}
+          {status === "ok" && (
+            <p className="text-green-600 text-base font-semibold text-center mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
+              ¡Mensaje enviado con éxito! Te contactaremos pronto.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-red-600 text-base font-semibold text-center mt-4 p-3 bg-red-50 rounded-lg border border-red-200">
+              Hubo un problema al enviar. Por favor, verifica tus datos e inténtalo de nuevo.
+            </p>
+          )}
+        </form>
+      </div>
     </section>
   );
 };

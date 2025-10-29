@@ -1,12 +1,10 @@
 
 import { Link } from "react-router-dom";
-
-// 👉 Reemplazá estas rutas por tus imágenes reales
-import HeroImg from "../assets/HeroImg.jpg"; // foto de obra o equipo
+import HeroImg from "../assets/HeroImg.jpg"; 
 import Equipo1 from "../assets/equipo.jpg";
 import Equipo2 from "../assets/equipo2.jpg";
 import Equipo3 from "../assets/equipo3.jpg";
-import CertIcon from "../assets/certicon.jpg"; // opcional
+import CertIcon from "../assets/certicon.jpg"; 
 
  function Nosotros() {
   const valores = [
@@ -29,10 +27,10 @@ import CertIcon from "../assets/certicon.jpg"; // opcional
   ];
 
   const stats = [
-    { label: "Años de trayectoria", value: "+5" },
+    { label: "Años de trayectoria", value: "+3" },
     { label: "Obras entregadas", value: "+20" },
-    { label: "Clientes satisfechos", value: "+90" },
-    { label: "Índice de cumplimiento", value: "97%" },
+    { label: "Clientes satisfechos", value: "+100" },
+    { label: "Índice de cumplimiento", value: "100%" },
   ];
 
   const equipo = [
@@ -281,7 +279,7 @@ import CertIcon from "../assets/certicon.jpg"; // opcional
             </div>
             <div className="flex items-center gap-3 md:justify-end">
               <Link
-                to="/contacto"
+                to="/contact"
                 className="rounded-xl bg-white px-5 py-3 text-sm font-medium text-neutral-900 hover:bg-neutral-100"
               >
                 Contacto

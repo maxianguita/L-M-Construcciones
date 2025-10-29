@@ -16,7 +16,7 @@ const Home = () => {
         
     {/* IMAGEN DE FONDO: Usa la variable 'Image' importada */}
     <div 
-      className="absolute inset-0 bg-cover bg-center" 
+  className="absolute inset-0 bg-cover bg-center" 
       style={{ backgroundImage: `url('${Image}')` }}
     />
 
@@ -35,14 +35,14 @@ const Home = () => {
 
       {/* PÁRRAFO: Lo alineamos a la izquierda y reducimos el ancho máximo para que quede en el lado */}
       <p className="max-w-xl text-xl md:text-2xl text-gray-300 mb-10 font-semibold">
-        Transformamos tus ideas en proyectos reales. Construcción, pintura y mantenimiento con **compromiso y calidad**.
+        Transformamos tus ideas en proyectos reales. Construcción, pintura y mantenimiento con compromiso y calidad.
       </p>
 
       {/* BOTONES: Justificamos al inicio (izquierda) */}
       <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-start">
         {/* CTA Primario */}
         <a 
-          href="#proyectos" 
+          href="proyectos" 
           className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-black rounded-md text-gray-700 bg-amber-500 hover:bg-amber-600 transition duration-300 shadow-xl"
         >
           Ver Proyectos
