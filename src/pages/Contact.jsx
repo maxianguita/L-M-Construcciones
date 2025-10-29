@@ -1,12 +1,11 @@
 import { memo, useRef, useState } from "react";
 import { Send, PhoneCall } from "lucide-react";
-import emailjs from "@emailjs/browser"; // 👈 Import real de EmailJS
+import emailjs from "@emailjs/browser";
 
-// 🔹 Tus credenciales reales de EmailJS
-// ⚠️ Reemplazá estos valores con los que tenés en tu cuenta de EmailJS
-const SERVICE_ID = "tu_service_id";
-const TEMPLATE_ID = "tu_template_id";
-const PUBLIC_KEY = "tu_public_key";
+// 🔹 Usamos variables de entorno
+const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -18,7 +17,6 @@ const Contact = () => {
     setStatus("sending");
 
     try {
-      // Envío real del formulario a través de EmailJS
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
       setStatus("ok");
       formRef.current.reset();
@@ -33,7 +31,7 @@ const Contact = () => {
   return (
     <section id="contacto" className="py-20 bg-gray-50 font-sans mt-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Encabezado */}
         <div className="text-center mb-12">
           <PhoneCall className="w-8 h-8 mx-auto text-blue-700 mb-2" />
