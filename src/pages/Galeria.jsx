@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 // =====================================================================
 // 1. IMPORTACIÓN DE IMÁGENES
@@ -98,25 +100,29 @@ const ProjectCarousel = () => {
   const currentPhoto = projectPhotos[currentIndex];
 
   return (
-    
-    <section className="py-12 px-4 sm:px-6 lg:px-12  font-sans ">
-      {/* Título de la Sección */}
-      <div className=" mt-40 inset-x-0 bottom-0 p-3 sm:p-6 bg-gradient-to-t from-gray-900/70 to-transparent">
-  <p className="text-white text-base sm:text-xl font-semibold transition-opacity duration-700">
-    {currentPhoto.alt}
-  </p>
-  <p className="text-gray-300 text-xs sm:text-sm mt-1">
-    Proyecto {currentIndex + 1} de {projectPhotos.length}
-  </p>
-</div>
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-8 sm:mb-10 uppercase tracking-wide">
+    <section className="py-12 px-4 sm:px-6 lg:px-12 font-sans relative">
+      {/* 🔙 Flecha para volver al Home (solo móvil) */}
+      <Link
+        to="/"
+        aria-label="Volver al inicio"
+        title="Volver al inicio"
+        className="fixed top-24 left-6 z-50 inline-flex items-center justify-center
+                   h-9 w-9 rounded-full bg-white/90 backdrop-blur border border-black/5
+                   text-gray-700 shadow-md transition
+                   hover:bg-amber-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-500
+                   block sm:hidden"
+      >
+        <ArrowLeft className="h-4 w-4" />
+      </Link>
+
+      {/* 🏗️ Título de la Sección */}
+      <h2 className="mt-40 text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-8 sm:mb-10 uppercase tracking-wide">
         Proyectos Destacados
       </h2>
 
-      {/* Contenedor Principal del Carrusel */}
+      {/* 📸 Contenedor Principal del Carrusel */}
       <div className="relative max-w-3xl sm:max-w-5xl mx-auto rounded-lg shadow-2xl overflow-hidden">
-        
-        {/* Imagen Actual del Carrusel */}
+        {/* Imagen Actual */}
         <div className="w-full h-[250px] sm:h-[400px] md:h-[500px] lg:h-[650px]">
           <img
             src={currentPhoto.src}
@@ -125,46 +131,62 @@ const ProjectCarousel = () => {
           />
         </div>
 
-        {/* Overlay Minimalista con Texto */}
+        {/* Overlay con Texto */}
         <div className="absolute inset-x-0 bottom-0 p-3 sm:p-6 bg-gradient-to-t from-gray-900 to-transparent">
-          <p className="text-white text-base sm:text-xl font-bold transition-opacity duration-700">
-            {currentPhoto.alt}
-          </p>
+          <p className="text-white text-base sm:text-xl font-bold">{currentPhoto.alt}</p>
           <p className="text-gray-300 text-xs sm:text-sm mt-1">
             Proyecto {currentIndex + 1} de {projectPhotos.length}
           </p>
         </div>
 
-        {/* Botón de Navegación Anterior */}
+        {/* Botones de Navegación */}
         <button
-          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 p-2 sm:p-3 bg-black bg-opacity-40 text-white rounded-full transition-colors duration-300 hover:bg-opacity-70 z-10"
+          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 
+                     p-2 sm:p-3 bg-black bg-opacity-40 text-white rounded-full 
+                     transition-colors duration-300 hover:bg-opacity-70 z-10"
           onClick={showPrev}
           aria-label="Anterior"
         >
           &lt;
         </button>
 
-        {/* Botón de Navegación Siguiente */}
         <button
-          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 p-2 sm:p-3 bg-black bg-opacity-40 text-white rounded-full transition-colors duration-300 hover:bg-opacity-70 z-10"
+          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 
+                     p-2 sm:p-3 bg-black bg-opacity-40 text-white rounded-full 
+                     transition-colors duration-300 hover:bg-opacity-70 z-10"
           onClick={showNext}
           aria-label="Siguiente"
         >
           &gt;
         </button>
 
-        {/* Indicadores de Posición */}
-        <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2 z-10">
-          {projectPhotos.map((_, index) => (
-            <button
-              key={index}
-              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex ? "bg-yellow-500 w-3 sm:w-4 h-3 sm:h-4" : "bg-white bg-opacity-50"
-              }`}
-              onClick={() => setCurrentIndex(index)}
-              aria-label={`Ir a la diapositiva ${index + 1}`}
-            />
-          ))}
+        {/* Indicadores + Link de Detalles solo móvil */}
+        <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-2 z-10">
+          <div className="flex space-x-1 sm:space-x-2">
+            {projectPhotos.map((_, index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "bg-yellow-500 w-3 sm:w-4 h-3 sm:h-4"
+                    : "bg-white bg-opacity-50"
+                }`}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Ir a la diapositiva ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* 🔗 Link solo visible en móvil */}
+          <Link
+            to="/galeria"
+            className="inline-flex items-center space-x-1 font-semibold text-sm 
+                       text-blue-600 hover:text-blue-800 transition duration-300
+                       block sm:hidden"
+          >
+            <span>Ver Detalles</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>

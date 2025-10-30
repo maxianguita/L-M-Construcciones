@@ -47,7 +47,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-gray-900/95 backdrop-blur-md shadow-xl z-50 border-b border-white/10">
+    <header className="fixed top-0 left-0 w-full bg-gray-900/95 backdrop-blur-md shadow-xl z-[80] border-b border-white/10">
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4 lg:py-4">
         {/* LOGO */}
         <Link to="/" className="flex items-center gap-3" onClick={handleLinkClick}>
@@ -78,11 +78,13 @@ const Navbar = () => {
         </ul>
 
         {/* BOTÓN MENÚ MÓVIL */}
-        <div className="md:hidden z-50">
+        <div className="md:hidden z-[80]">
           <button
             className="p-2 text-gray-300 hover:text-amber-500 transition-colors"
             onClick={() => setIsMenuOpen((v) => !v)}
             aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-drawer"
           >
             {isMenuOpen ? (
               <X className="h-7 w-7 stroke-2 text-white hover:text-amber-500" />
@@ -95,10 +97,13 @@ const Navbar = () => {
 
       {/* PANEL MÓVIL (slide-in) */}
       <div
+        id="mobile-drawer"
         className={`fixed top-0 left-0 h-screen w-[75vw] max-w-xs sm:max-w-sm
           bg-white shadow-2xl transform transition-transform duration-500 ease-in-out
           ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}
-          md:hidden z-40 overflow-y-auto`}
+          md:hidden z-[70] overflow-y-auto`}
+        role="dialog"
+        aria-modal="true"
       >
         {/* Header del panel */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
@@ -134,11 +139,11 @@ const Navbar = () => {
         </ul>
       </div>
 
-      {/* OVERLAY OSCURO (full-screen) */}
+      {/* OVERLAY OSCURO (full-screen) — z por encima de flechas móviles (z-50) */}
       <div
         className={`fixed inset-0 bg-black/70 transition-opacity duration-500 ease-in-out
           ${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
-          md:hidden z-30`}
+          md:hidden z-[60]`}
         onClick={handleLinkClick}
         aria-hidden={!isMenuOpen}
       />

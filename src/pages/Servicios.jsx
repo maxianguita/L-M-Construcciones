@@ -1,9 +1,25 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react'; 
 
 const Servicios = () => {
   return (
     <main className="min-h-screen bg-gray-100 pt-24 pb-16 mt-20">
+      {/* Flecha de volver al Home */}
+      <Link
+  to="/"
+  aria-label="Volver al inicio"
+  title="Volver al inicio"
+  className="fixed top-24 left-6 z-50 inline-flex items-center justify-center
+             h-9 w-9 rounded-full bg-white/90 backdrop-blur border border-black/5
+             text-gray-700 shadow-md transition
+             hover:bg-amber-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-500
+             block sm:hidden"
+>
+  <ArrowLeft className="h-4 w-4" />
+</Link>
+
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Encabezado Principal */}
@@ -86,7 +102,7 @@ const Servicios = () => {
             Contáctanos hoy mismo para obtener una cotización sin compromiso y llevar tu obra al siguiente nivel.
           </p>
           <Link
-            to="/contact"  // ← corregido
+            to="/contact"
             aria-label="Ir a la página de contacto para solicitar cotización"
             className="bg-white text-gray-700 font-black py-3 px-10 rounded-md hover:bg-amber-600 hover:text-white transition duration-300 text-lg shadow-lg"
           >

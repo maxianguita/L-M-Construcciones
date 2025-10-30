@@ -24,6 +24,7 @@ import {
   ChevronDown,
   Phone,
   MapPin,
+  ArrowLeft,            // ← flecha para volver
 } from 'lucide-react';
 
 const Nosotros = () => {
@@ -72,7 +73,21 @@ const Nosotros = () => {
   const toggleFaq = (index) => setOpenFaq(openFaq === index ? null : index);
 
   return (
-    <main className="min-h-screen bg-gray-50 text-neutral-900 font-sans">
+    <main className="min-h-screen bg-gray-50 text-neutral-900 font-sans relative">
+      {/* Flecha para volver al Home */}
+    <Link
+  to="/"
+  aria-label="Volver al inicio"
+  title="Volver al inicio"
+  className="fixed top-24 left-6 z-50 inline-flex items-center justify-center
+             h-9 w-9 rounded-full bg-white/90 backdrop-blur border border-black/5
+             text-gray-700 shadow-md transition
+             hover:bg-amber-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-500
+             block sm:hidden"
+>
+  <ArrowLeft className="h-4 w-4" />
+</Link>
+
       {/* HEADER (simulación espacio Navbar) */}
       <div className="h-16 border-b border-gray-200 sticky top-0 z-20 flex items-center justify-between px-6 bg-white">
         <span className="text-xl font-bold text-sky-700">L & M Construcciones</span>
