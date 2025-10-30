@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 
 const Servicios = () => {
   return (
@@ -95,12 +96,12 @@ const Servicios = () => {
             <p className="text-gray-300 mb-6">
                 Contáctanos hoy mismo para obtener una cotización sin compromiso y llevar tu obra al siguiente nivel.
             </p>
-            <a 
+            <Link 
                 href="/contact" 
                 className="bg-white text-gray-600 font-black py-3 px-10 rounded-md hover:bg-amber-600 transition duration-300 text-lg shadow-lg"
             >
                 Solicitar Cotización
-            </a>
+            </Link>
         </div>
 
       </div>

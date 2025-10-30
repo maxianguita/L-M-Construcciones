@@ -137,12 +137,12 @@ bio: "Proyecto orientado a la optimización del proceso constructivo mediante la
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             {/* Aquí deberías usar <Link to="/contacto"> si tienes React Router */}
-            <a
-              href="#contacto-seccion" // Apunta a la sección de contacto dentro de la página
+            <Link
+              href="/contact" // Apunta a la sección de contacto dentro de la página
               className="w-full sm:w-auto rounded-xl bg-amber-500 px-8 py-3 text-lg font-semibold text-neutral-900 shadow-xl shadow-amber-500/30 hover:bg-amber-400 transition transform hover:scale-[1.02]"
             >
               Pedir Presupuesto
-            </a>
+            </Link>
             <a
               href="#valores"
               className="w-full sm:w-auto rounded-xl border border-white/60 px-8 py-3 text-lg font-medium text-white hover:bg-white/10 transition duration-300"
@@ -279,12 +279,12 @@ bio: "Proyecto orientado a la optimización del proceso constructivo mediante la
             </p>
           </div>
           {/* Aquí deberías usar <Link to="/contacto"> si tienes React Router */}
-          <a
+          <Link
             href="/contact"
             className="rounded-full bg-sky-700 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-sky-800 transition duration-300"
           >
             Trabajá con nosotros
-          </a>
+          </Link>
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {equipo.map((p) => (
@@ -401,21 +401,21 @@ bio: "Proyecto orientado a la optimización del proceso constructivo mediante la
             </div>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 md:justify-end">
               {/* Aquí deberías usar <Link to="/contacto"> si tienes React Router */}
-              <a
+              <Link
                 href="/contact" 
                 className="w-full sm:w-auto rounded-xl bg-white px-8 py-3 text-lg font-semibold text-sky-800 hover:bg-neutral-100 text-center transition shadow-lg"
               >
                 <Phone className="inline-block h-5 w-5 mr-2 -mt-1" />
                 Contactar por Email
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://wa.me/5491130352067"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto rounded-xl border-2 border-white/50 px-8 py-3 text-lg font-semibold text-white hover:bg-white/10 text-center transition"
               >
                 WhatsApp
-              </a>
+              </Link>
             </div>
           </div>
         </div>

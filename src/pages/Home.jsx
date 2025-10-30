@@ -4,6 +4,7 @@ import Banner from "./Banner";
 import FloatingWhatsApp from "../components/FloatingWhatsapp";
 import Section from "./Section";
 import Image from "../assets/heroimagen.jpg"
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -41,13 +42,12 @@ const Home = () => {
       {/* BOTONES: Justificamos al inicio (izquierda) */}
       <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-start">
         {/* CTA Primario */}
-        <a 
+        <Link
           href="/proyectos" 
           className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-black rounded-md text-gray-700 bg-amber-500 hover:bg-amber-600 transition duration-300 shadow-xl"
-        >
+        > 
           Ver Proyectos
-        </a>
-        
+        </Link>
         {/* CTA Secundario */}
         {/* <a 
           href="#contacto" 
