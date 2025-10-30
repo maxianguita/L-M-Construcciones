@@ -81,7 +81,7 @@ const Section = () => {
         </div>
         
         <div className="mt-16 text-center"> {/* Corregido */}
-            <a href="#" className="text-gray-500 hover:text-amber-500 font-semibold border-b-2 border-gray-500 hover:border-amber-400 pb-1 transition duration-300"> {/* Corregido */}
+            <a href="/nosotros" className="text-gray-500 hover:text-amber-500 font-semibold border-b-2 border-gray-500 hover:border-amber-400 pb-1 transition duration-300"> {/* Corregido */}
                 DESCUBRE NUESTRO PROCESO COMPLETO →
             </a>
         </div>
