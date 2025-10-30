@@ -8,6 +8,7 @@ import Nosotros from "./pages/Nosotros";
 import Section from "./pages/Section";
 import Proyectos from "./pages/Proyectos";
 import Servicios from "./pages/Servicios";
+import Galeria from "./pages/Galeria";  
 import "./App.css";
 
 export default function App() {
@@ -24,6 +25,8 @@ export default function App() {
         <Route path="/section" element={<Section />} />
         <Route path="/proyectos" element={<Proyectos/>} />
         <Route path="/servicios" element={<Servicios/>} />
+        <Route path="/galeria" element={<Galeria />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>

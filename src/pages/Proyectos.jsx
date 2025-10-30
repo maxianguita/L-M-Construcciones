@@ -1,7 +1,9 @@
 import { Briefcase, Building2, LayoutGrid, ArrowRight } from 'lucide-react';
+import { Link } from "react-router-dom";
 import img from '../assets/oficina.avif';
 import img2 from '../assets/montaje.png';
 import img3 from '../assets/trabajando.png';
+
 // Datos de proyectos originales con marcadores de posición de imagen genéricos
 const proyectos = [
     {
@@ -116,17 +118,17 @@ const ProyectosConstruccion = () => {
                 </div>
                 
                 {/* Llamada a la Acción General */}
-                <div className="text-center mt-16">
-                    <a 
-                        href="/proyectos-completo" 
-                        className={`inline-flex items-center space-x-2 
-                                    bg-blue-700 text-white font-bold py-3 px-10 rounded-lg 
-                                    hover:bg-blue-800 transition duration-300 shadow-xl 
-                                    transform hover:scale-[1.02]`}
-                    >
-                        <span>Ver Galería Completa</span>
-                    </a>
-                </div>
+               <div className="text-center mt-16">
+  <Link
+    to="/galeria"
+    className="inline-flex items-center space-x-2 
+               bg-blue-700 text-white font-bold py-3 px-10 rounded-lg 
+               hover:bg-blue-800 transition duration-300 shadow-xl 
+               transform hover:scale-[1.02]"
+  >
+    <span>Ver Galería Completa</span>
+  </Link>
+</div>
 
             </div>
         </section>

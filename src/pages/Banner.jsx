@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 const ValueBanner = () => {
   return (
-    <section className="relative left-1/2 right-1/2 -mx-[50vw] w-[100vw] bg-gray-400 py-44">
+   <section className="relative left-1/2 right-1/2 -mx-[50vw] w-[100vw] bg-gray-400 py-80 mt-10">
+
   <div className="mx-auto max-w-6xl px-6">
         {/* Título y subtítulo */}
         <div className="text-center mb-8">

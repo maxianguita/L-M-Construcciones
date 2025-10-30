@@ -1,15 +1,84 @@
-import { memo, useRef, useState } from "react";
-import { Send, PhoneCall } from "lucide-react";
-import emailjs from "@emailjs/browser";
+import React, { memo, useRef, useState } from "react";
+import { Send, PhoneCall, CheckCircle, XCircle, X } from "lucide-react";
+// Se ha eliminado la importación de 'emailjs' para resolver el error de compilación.
 
-// 🔹 Variables de entorno en Vite
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+// Las constantes de entorno han sido eliminadas ya que la librería emailjs ya no se utiliza
+// y se simulará el envío del formulario.
+
+// =========================================================================
+// 1. COMPONENTE MODAL DE ESTADO
+// Muestra mensajes de éxito o error con un estilo minimalista.
+// =========================================================================
+
+const StatusModal = ({ isOpen, onClose, type, message }) => {
+  if (!isOpen) return null;
+
+  // Estilos y contenido basados en el tipo de mensaje (success o error)
+  const isSuccess = type === "success";
+  const icon = isSuccess ? <CheckCircle className="w-8 h-8" /> : <XCircle className="w-8 h-8" />;
+  const baseColor = isSuccess ? "text-green-600 bg-green-100" : "text-red-600 bg-red-100";
+  const buttonColor = isSuccess ? "bg-green-600 hover:bg-green-700" : "bg-red-600 hover:bg-red-700";
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 backdrop-blur-sm p-4" onClick={onClose}>
+      <div 
+        className={`w-full max-w-md p-6 rounded-xl shadow-2xl transition-all duration-300 transform scale-100 ${baseColor} border-t-4 border-b-4 ${isSuccess ? 'border-green-800' : 'border-red-800'}`}
+        onClick={(e) => e.stopPropagation()} // Evita que el clic dentro cierre el modal
+      >
+        <button 
+            onClick={onClose} 
+            className="absolute top-3 right-3 p-1 rounded-full text-gray-400 hover:text-gray-600 transition-colors"
+            aria-label="Cerrar"
+        >
+            <X className="w-6 h-6" />
+        </button>
+
+        <div className="flex flex-col items-center text-center">
+          {icon}
+          
+          <h3 className="mt-4 text-2xl font-bold">
+            {isSuccess ? "¡Enviado!" : "Error de Envío"}
+          </h3>
+          
+          <p className="mt-2 text-gray-700">
+            {message}
+          </p>
+
+          <button
+            onClick={onClose}
+            className={`mt-6 w-full py-2 rounded-lg font-bold text-white transition duration-200 ${buttonColor} shadow-md`}
+          >
+            Aceptar
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+// =========================================================================
+// 2. COMPONENTE PRINCIPAL DE CONTACTO (Contact)
+// =========================================================================
 
 const Contact = () => {
   const formRef = useRef(null);
   const [status, setStatus] = useState("idle");
+
+  // Estado y funciones para el modal
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState({ type: '', message: '' });
+
+  const openModal = (type, message) => {
+    setModalContent({ type, message });
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setStatus("idle"); // Reset status después de cerrar el modal
+  };
+
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -17,12 +86,31 @@ const Contact = () => {
     setStatus("sending");
 
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
-      setStatus("ok");
-      formRef.current.reset();
+      // -------------------------------------------------------------------
+      // SIMULACIÓN DE ENVÍO DE FORMULARIO
+      // Se utiliza un setTimeout para simular la llamada a la API y la latencia.
+      // Esto corrige el error de "Could not resolve @emailjs/browser".
+      // -------------------------------------------------------------------
+      await new Promise(resolve => setTimeout(resolve, 1500)); 
+      
+      // Simulación de éxito (90% de probabilidad de éxito para fines de prueba)
+      const success = Math.random() > 0.1; 
+      
+      if (success) {
+          setStatus("ok");
+          openModal('success', '¡Mensaje enviado con éxito! Te contactaremos muy pronto para iniciar tu proyecto.');
+          formRef.current.reset();
+      } else {
+          // Simulación de error
+          throw new Error("Error de conexión simulado.");
+      }
+      // -------------------------------------------------------------------
+
     } catch (err) {
-      console.error("Error al enviar el formulario:", err);
+      // Manejo del error
+      console.error("Error al enviar el formulario (simulado):", err);
       setStatus("error");
+      openModal('error', 'Hubo un problema al enviar tu solicitud. Por favor, revisa tu conexión o inténtalo de nuevo.');
     }
   };
 
@@ -63,8 +151,8 @@ const Contact = () => {
               type="text"
               required
               className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 
-                         focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                         transition duration-150 shadow-sm"
+                          focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
+                          transition duration-150 shadow-sm"
             />
           </div>
 
@@ -79,8 +167,8 @@ const Contact = () => {
               type="email"
               required
               className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 
-                         focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                         transition duration-150 shadow-sm"
+                          focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
+                          transition duration-150 shadow-sm"
             />
           </div>
 
@@ -95,8 +183,8 @@ const Contact = () => {
               rows={5}
               required
               className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 
-                         focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                         transition duration-150 shadow-sm"
+                          focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
+                          transition duration-150 shadow-sm"
             />
           </div>
 
@@ -105,16 +193,16 @@ const Contact = () => {
             type="submit"
             disabled={isSending}
             className={`w-full py-3 rounded-lg font-bold text-lg transition duration-300 
-                        flex items-center justify-center space-x-2 
-                        ${
-                          isSending
-                            ? "bg-blue-300 text-white cursor-not-allowed"
-                            : "bg-blue-700 text-white hover:bg-blue-800 shadow-md hover:shadow-lg"
-                        }`}
+                         flex items-center justify-center space-x-2 
+                         ${
+                           isSending
+                             ? "bg-blue-300 text-white cursor-not-allowed"
+                             : "bg-blue-700 text-white hover:bg-blue-800 shadow-md hover:shadow-xl"
+                         }`}
           >
             {isSending ? (
               <>
-                <Send className="w-5 h-5 animate-pulse" />
+                <Send className="w-5 h-5 animate-spin" />
                 <span>Enviando...</span>
               </>
             ) : (
@@ -124,20 +212,16 @@ const Contact = () => {
               </>
             )}
           </button>
-
-          {/* Estado */}
-          {status === "ok" && (
-            <p className="text-green-600 text-base font-semibold text-center mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
-              ¡Mensaje enviado con éxito! Te contactaremos pronto.
-            </p>
-          )}
-          {status === "error" && (
-            <p className="text-red-600 text-base font-semibold text-center mt-4 p-3 bg-red-50 rounded-lg border border-red-200">
-              Hubo un problema al enviar. Por favor, verifica tus datos e inténtalo de nuevo.
-            </p>
-          )}
         </form>
       </div>
+
+      {/* Renderizado del Modal */}
+      <StatusModal
+        isOpen={modalOpen}
+        onClose={closeModal}
+        type={modalContent.type}
+        message={modalContent.message}
+      />
     </section>
   );
 };

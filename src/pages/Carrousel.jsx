@@ -32,7 +32,7 @@ const Carrousel = () => {
   return (
     <div className="relative left-1/2 right-1/2 -mx-[50vw] w-[100vw] overflow-hidden  rounded-lg shadow-lg  mt-8">
       {/* Slides */}
-      <div className="relative h-[500px] w-full overflow-hidden">
+      <div className="relative h-[600px] w-full overflow-hidden">
         {slides.map((s, i) => (
           <img
             key={s.id}

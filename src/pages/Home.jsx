@@ -9,14 +9,14 @@ const Home = () => {
   return (
     // Utilizamos 'min-h-screen' y 'relative' para la sección principal.
     // El 'pt-24' se mantiene para dejar espacio al Navbar, si lo pones arriba.
-    <main className="relative min-h-screen pt-24 mt-8">
+    <main className="relative min-h-screen pt-10 ">
       
       {/* 1. SECCIÓN HEROE (Principal) */}
      <section className="relative h-[65vh] md:h-[150vh] flex items-center bg-gray-900 overflow-hidden">
         
     {/* IMAGEN DE FONDO: Usa la variable 'Image' importada */}
     <div 
-  className="absolute inset-0 bg-cover bg-center" 
+  className="absolute inset-0 bg-cover bg-center " 
       style={{ backgroundImage: `url('${Image}')` }}
     />
 
