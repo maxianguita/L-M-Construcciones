@@ -280,7 +280,7 @@ bio: "Proyecto orientado a la optimización del proceso constructivo mediante la
           </div>
           {/* Aquí deberías usar <Link to="/contacto"> si tienes React Router */}
           <a
-            href="#contacto-seccion"
+            href="/contact"
             className="rounded-full bg-sky-700 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-sky-800 transition duration-300"
           >
             Trabajá con nosotros
@@ -409,7 +409,7 @@ bio: "Proyecto orientado a la optimización del proceso constructivo mediante la
                 Contactar por Email
               </a>
               <a
-                href="https://wa.me/5491112345678"
+                href="https://wa.me/5491130352067"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto rounded-xl border-2 border-white/50 px-8 py-3 text-lg font-semibold text-white hover:bg-white/10 text-center transition"

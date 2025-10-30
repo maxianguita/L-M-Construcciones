@@ -60,7 +60,7 @@ const ValueBanner = () => {
             Solicitar cotización
           </Link>
           <a
-            href="https://wa.me/54911XXXXXXXX" // tu número con código país
+            href="https://wa.me/5491130352067" 
             target="_blank"
             className="rounded-full bg-yellow-500 border border-gray-300 px-6 py-3 font-medium text-gray-100 hover:bg-yellow-600"
           >

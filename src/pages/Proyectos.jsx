@@ -73,7 +73,7 @@ const ProjectCard = ({ project }) => {
 
                 {/* Enlace de acento azul */}
                 <a 
-                    href="#" // Placeholder
+                    href="/galeria" 
                     className="inline-flex items-center space-x-1 font-semibold text-sm 
                                 text-blue-600 hover:text-blue-800 transition duration-300"
                 >

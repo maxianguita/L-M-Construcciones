@@ -76,7 +76,7 @@ const Home = () => {
       </div>
 
       {/* WhatsApp flotante: mantenido como estaba */}
-      <FloatingWhatsApp phone="54911XXXXXXXX" message="Hola, quiero una cotización para mi obra" />
+      <FloatingWhatsApp phone="5491130352067" message="Hola, quiero una cotización para mi obra" />
       
     </main>
   );
