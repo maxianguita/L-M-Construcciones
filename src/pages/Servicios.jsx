@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Servicios = () => {
   return (
-    // Contenedor principal: Fondo gris claro y padding superior para el espacio del Navbar
     <main className="min-h-screen bg-gray-100 pt-24 pb-16 mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -19,18 +18,13 @@ const Servicios = () => {
             Desde la cimentación hasta el acabado final, nuestro equipo ofrece experiencia, seguridad y la tecnología más avanzada.
           </p>
         </div>
-        
-        {/* --- GRID DE CATEGORÍAS DE SERVICIOS --- */}
 
-        {/* Categoría 1: OBRA CIVIL E INFRAESTRUCTURA */}
+        {/* Categoría 1 */}
         <div className="mb-12">
           <h2 className="text-3xl font-bold text-gray-800 border-b-2 border-amber-500 pb-2 mb-8 inline-block">
             Obra Civil e Infraestructura
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            {/* Tarjeta de Servicio */}
-            {/* Usamos bg-white con shadow para una apariencia limpia y profesional */}
             <div className="bg-white p-6 rounded-lg shadow-xl transition duration-300 hover:shadow-2xl hover:border-b-4 border-blue-700">
               <span className="text-blue-700 text-3xl mb-3 block">🏗️</span>
               <h3 className="text-xl font-black text-gray-800 mb-2">Construcción Residencial</h3>
@@ -38,7 +32,6 @@ const Servicios = () => {
                 Diseño y construcción de viviendas unifamiliares y complejos habitacionales con eficiencia y calidad.
               </p>
             </div>
-            
             <div className="bg-white p-6 rounded-lg shadow-xl transition duration-300 hover:shadow-2xl hover:border-b-4 border-blue-700">
               <span className="text-blue-700 text-3xl mb-3 block">🏭</span>
               <h3 className="text-xl font-black text-gray-800 mb-2">Estructuras Industriales</h3>
@@ -46,7 +39,6 @@ const Servicios = () => {
                 Naves, almacenes y plantas de producción. Especialistas en grandes luces y sistemas modulares.
               </p>
             </div>
-
             <div className="bg-white p-6 rounded-lg shadow-xl transition duration-300 hover:shadow-2xl hover:border-b-4 border-blue-700">
               <span className="text-blue-700 text-3xl mb-3 block">🧱</span>
               <h3 className="text-xl font-black text-gray-800 mb-2">Cimentaciones y Muros</h3>
@@ -56,14 +48,13 @@ const Servicios = () => {
             </div>
           </div>
         </div>
-        
-        {/* Categoría 2: PINTURA Y MANTENIMIENTO */}
+
+        {/* Categoría 2 */}
         <div className="mb-12 mt-16">
           <h2 className="text-3xl font-bold text-gray-800 border-b-2 border-amber-500 pb-2 mb-8 inline-block">
             Pintura y Mantenimiento
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
             <div className="bg-white p-6 rounded-lg shadow-xl transition duration-300 hover:shadow-2xl hover:border-b-4 border-blue-700">
               <span className="text-blue-700 text-3xl mb-3 block">🎨</span>
               <h3 className="text-xl font-black text-gray-800 mb-2">Pintura Industrial y Fachadas</h3>
@@ -71,7 +62,6 @@ const Servicios = () => {
                 Aplicación de recubrimientos especializados de alto rendimiento y pintura exterior de gran altura.
               </p>
             </div>
-            
             <div className="bg-white p-6 rounded-lg shadow-xl transition duration-300 hover:shadow-2xl hover:border-b-4 border-blue-700">
               <span className="text-blue-700 text-3xl mb-3 block">🛡️</span>
               <h3 className="text-xl font-black text-gray-800 mb-2">Mantenimiento Preventivo</h3>
@@ -79,7 +69,6 @@ const Servicios = () => {
                 Programas de revisión periódica y reparación para asegurar la vida útil de sus instalaciones.
               </p>
             </div>
-
             <div className="bg-white p-6 rounded-lg shadow-xl transition duration-300 hover:shadow-2xl hover:border-b-4 border-blue-700">
               <span className="text-blue-700 text-3xl mb-3 block">⚙️</span>
               <h3 className="text-xl font-black text-gray-800 mb-2">Remodelaciones y Adaptación</h3>
@@ -89,21 +78,21 @@ const Servicios = () => {
             </div>
           </div>
         </div>
-        
-        {/* --- CTA DE CONTACTO FINAL --- */}
-        <div className="text-center mt-20 p-8 bg-sky-700 rounded-lg shadow-2xl">
-            <h3 className="text-3xl font-black text-white mb-3">¿Tienes un Proyecto en Mente?</h3>
-            <p className="text-gray-300 mb-6">
-                Contáctanos hoy mismo para obtener una cotización sin compromiso y llevar tu obra al siguiente nivel.
-            </p>
-            <Link 
-                href="/contact" 
-                className="bg-white text-gray-600 font-black py-3 px-10 rounded-md hover:bg-amber-600 transition duration-300 text-lg shadow-lg"
-            >
-                Solicitar Cotización
-            </Link>
-        </div>
 
+        {/* CTA Final */}
+        <div className="text-center mt-20 p-8 bg-sky-700 rounded-lg shadow-2xl">
+          <h3 className="text-3xl font-black text-white mb-3">¿Tienes un Proyecto en Mente?</h3>
+          <p className="text-gray-200 mb-6">
+            Contáctanos hoy mismo para obtener una cotización sin compromiso y llevar tu obra al siguiente nivel.
+          </p>
+          <Link
+            to="/contact"  // ← corregido
+            aria-label="Ir a la página de contacto para solicitar cotización"
+            className="bg-white text-gray-700 font-black py-3 px-10 rounded-md hover:bg-amber-600 hover:text-white transition duration-300 text-lg shadow-lg"
+          >
+            Solicitar Cotización
+          </Link>
+        </div>
       </div>
     </main>
   );

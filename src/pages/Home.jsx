@@ -42,12 +42,14 @@ const Home = () => {
       {/* BOTONES: Justificamos al inicio (izquierda) */}
       <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-start">
         {/* CTA Primario */}
-        <Link
-          href="/proyectos" 
-          className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-black rounded-md text-gray-700 bg-amber-500 hover:bg-amber-600 transition duration-300 shadow-xl"
-        > 
-          Ver Proyectos
-        </Link>
+       <Link
+  to="/proyectos"
+  aria-label="Ver todos los proyectos"
+  className="inline-flex items-center justify-center px-8 py-4 text-base font-black rounded-md text-gray-700 bg-amber-500 hover:bg-amber-600 transition duration-300 ease-in-out shadow-xl"
+>
+  Ver Proyectos
+</Link>
+
         {/* CTA Secundario */}
         {/* <a 
           href="#contacto" 
