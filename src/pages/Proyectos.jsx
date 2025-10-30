@@ -98,7 +98,7 @@ const ProyectosConstruccion = () => {
                 {/* Encabezado de la Sección */}
                 <div className="text-center mb-16">
                     {/* Título de acento en azul */}
-                    <h2 className="text-base font-bold tracking-wide uppercase text-blue-700">
+                    <h2 className="text-base font-bold tracking-wide uppercase text-sky-600">
                         NUESTRO TRABAJO
                     </h2>
                     {/* Título principal */}
@@ -122,7 +122,7 @@ const ProyectosConstruccion = () => {
   <Link
     to="/galeria"
     className="inline-flex items-center space-x-2 
-               bg-blue-700 text-white font-bold py-3 px-10 rounded-lg 
+               bg-sky-700 text-white font-bold py-3 px-10 rounded-lg 
                hover:bg-blue-800 transition duration-300 shadow-xl 
                transform hover:scale-[1.02]"
   >

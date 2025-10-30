@@ -90,14 +90,14 @@ const Servicios = () => {
         </div>
         
         {/* --- CTA DE CONTACTO FINAL --- */}
-        <div className="text-center mt-20 p-8 bg-blue-900 rounded-lg shadow-2xl">
+        <div className="text-center mt-20 p-8 bg-sky-700 rounded-lg shadow-2xl">
             <h3 className="text-3xl font-black text-white mb-3">¿Tienes un Proyecto en Mente?</h3>
             <p className="text-gray-300 mb-6">
                 Contáctanos hoy mismo para obtener una cotización sin compromiso y llevar tu obra al siguiente nivel.
             </p>
             <a 
                 href="/contact" 
-                className="bg-amber-500 text-gray-900 font-black py-3 px-10 rounded-md hover:bg-amber-600 transition duration-300 text-lg shadow-lg"
+                className="bg-white text-gray-600 font-black py-3 px-10 rounded-md hover:bg-amber-600 transition duration-300 text-lg shadow-lg"
             >
                 Solicitar Cotización
             </a>
