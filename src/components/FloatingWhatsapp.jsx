@@ -1,12 +1,12 @@
 import { memo } from "react";
 
 const FloatingWhatsApp = () => {
-  // ✅ Número en formato internacional (Argentina)
+  // Número en formato internacional (Argentina)
   const phone = "5491130352067"; // 54 (código país) + 9 + número sin 15
   const message = "Hola, quiero más información sobre sus servicios";
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
-  // ✅ Función que abre WhatsApp cuando el usuario hace clic
+  // Función que abre WhatsApp cuando el usuario hace clic
   const handleClick = () => {
     window.open(url, "_blank");
   };
@@ -16,14 +16,14 @@ const FloatingWhatsApp = () => {
       onClick={handleClick}
       aria-label="Chatear por WhatsApp"
       className="
-        fixed right-4 bottom-4 z-50 
-        h-14 w-14 md:h-16 md:w-16
-        grid place-items-center
-        rounded-full shadow-lg
-        bg-green-500 hover:bg-green-600
-        text-white transition
-        animate-[pulse_2.5s_ease-in-out_infinite]
-      "
+        fixed bottom-20 left-6 z-50 
+    h-14 w-14 md:h-16 md:w-16
+    grid place-items-center
+    rounded-full shadow-lg
+    bg-green-500 hover:bg-green-600
+    text-white transition
+    animate-[pulse_2.5s_ease-in-out_infinite]
+  "
       style={{
         boxShadow: "0 4px 12px rgba(0,0,0,.35)",
       }}
