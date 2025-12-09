@@ -2,56 +2,81 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary Meta Tags -->
-    <title>L-M Construcciones | Expertos en Construcción y Remodelación</title>
-    <meta
-      name="title"
-      content="L-M Construcciones | Expertos en Construcción y Remodelación"
-    />
-    <meta
-      name="description"
-      content="Servicios profesionales de construcción, remodelación y diseño arquitectónico. Transformamos tus proyectos en realidad con los más altos estándares de calidad."
-    />
-    <meta
-      name="keywords"
-      content="construcción, remodelación, arquitectura, obra gris, acabados, diseño de interiores, contratista, L-M Construcciones"
-    />
+    <!-- ===================================================== -->
+    <!-- SEO PRINCIPAL -->
+    <!-- ===================================================== -->
+    <title>L-M Construcciones | Construcción, Remodelación y Obras en Buenos Aires</title>
+
+    <meta name="description"
+      content="Empresa profesional de construcción y remodelación en Buenos Aires. Obras civiles, ampliaciones, refacciones, diseños arquitectónicos y más. Cumplimos con altos estándares de calidad y confianza." />
+
+    <meta name="keywords"
+      content="construcción, remodelación, obra, arquitectura, contratista, albañilería, reformas, empresa constructora, Buenos Aires" />
+
     <meta name="robots" content="index, follow" />
-    <meta name="language" content="Spanish" />
     <meta name="author" content="L-M Construcciones" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- ===================================================== -->
+    <!-- OPEN GRAPH (Facebook, WhatsApp) -->
+    <!-- ===================================================== -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://l-m-construcciones-h5gx.vercel.app/"
-    />
-    <meta
-      property="og:title"
-      content="L-M Construcciones | Expertos en Construcción y Remodelación"
-    />
-    <meta
-      property="og:description"
-      content="Servicios profesionales de construcción, remodelación y diseño arquitectónico. Transformamos tus proyectos en realidad con los más altos estándares de calidad."
-    />
+    <meta property="og:url" content="https://l-m-construcciones.com/" />
+    <meta property="og:title" content="L-M Construcciones | Expertos en Construcción y Remodelación" />
+    <meta property="og:description"
+      content="Servicios de construcción, remodelación, diseño arquitectónico y refacciones con calidad profesional." />
     <meta property="og:image" content="/og-image.png" />
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- ===================================================== -->
+    <!-- TWITTER CARD -->
+    <!-- ===================================================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title"
+      content="L-M Construcciones | Construcción y Remodelación en Buenos Aires" />
+    <meta name="twitter:description"
+      content="Expertos en construcción, remodelación, ampliaciones y obras de calidad." />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- ===================================================== -->
+    <!-- FAVICON -->
+    <!-- ===================================================== -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- ===================================================== -->
+    <!-- SITEMAP & CANONICAL -->
+    <!-- ===================================================== -->
+    <link rel="canonical" href="https://l-m-construcciones.com/" />
+
+    <!-- ===================================================== -->
+    <!-- STRUCTURED DATA JSON-LD -->
+    <!-- ===================================================== -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "GeneralContractor",
-        "name": "L-M Construcciones",
-        "url": "https://l-m-construcciones-h5gx.vercel.app/",
-        "sameAs": ["https://www.facebook.com/profile.php?id=61582992600246"]
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "ConstructionCompany",
+      "name": "L-M Construcciones",
+      "url": "https://l-m-construcciones.com/",
+      "logo": "https://l-m-construcciones.com/favicon.png",
+      "image": "https://l-m-construcciones.com/og-image.png",
+      "description": "Servicios profesionales de construcción, remodelación y obras.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61582992600246"
+      ]
+    }
     </script>
+
+    <!-- VITE ENTRY -->
+    <script type="module" src="/src/main.jsx" defer></script>
   </head>
+
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
