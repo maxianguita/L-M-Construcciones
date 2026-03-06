@@ -40,6 +40,26 @@ import img31 from '../img/img31.jpg';
 import img32 from '../img/img32.jpg';
 import img33 from '../img/img33.jpg';
 import img34 from '../img/img34.jpg';
+import img35 from '../img/img35.jpeg';
+
+import img36 from '../img/img36.jpeg';
+import img37 from '../img/img37.jpeg';
+import img38 from '../img/img38.jpeg';
+import img39 from '../img/img39.jpeg';
+import img40 from '../img/img40.jpeg';
+import img41 from '../img/img41.jpeg';
+import img42 from '../img/img42.jpeg';
+import img43 from '../img/img43.jpeg';
+import img44 from '../img/img44.jpeg';
+import img45 from  '../img/img45.jpeg';
+import img46 from '../img/img46.jpeg';
+import img47 from '../img/img47.jpeg';
+import img48 from '../img/img48.jpeg';
+import img49 from '../img/img49.jpeg';
+import img50 from '../img/img50.jpeg';
+import img51 from '../img/img51.jpeg';
+import img52 from '../img/img52.jpeg';
+import img53 from '../img/img53.jpeg';
 
 
 // =====================================================================
@@ -80,6 +100,25 @@ const projectPhotos = [
   { id: 32, src: img32, alt: 'Detalle de ladrillo y mortero' },
   { id: 33, src: img33, alt: 'Instalación de paneles solares' },
   { id: 34, src: img34, alt: 'Paisaje urbano con construcción terminada' },
+  { id: 35, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 36, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 37, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 38, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 39, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 40, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 41, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 42, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 43, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 44, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 45, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 46, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 47, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 48, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 49, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 50, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 51, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 52, src: img35, alt: 'Paisaje urbano con construcción terminada' },
+{ id: 53, src: img35, alt: 'Paisaje urbano con construcción terminada' },
 ];
 
 
@@ -123,7 +162,7 @@ const ProjectCarousel = () => {
       {/* 📸 Contenedor Principal del Carrusel */}
       <div className="relative max-w-3xl sm:max-w-5xl mx-auto rounded-lg shadow-2xl overflow-hidden">
         {/* Imagen Actual */}
-        <div className="w-full h-[250px] sm:h-[400px] md:h-[500px] lg:h-[650px]">
+        <div className="w-full h-[400px] sm:h-[600px] md:h-[750px] lg:h-[850px]">
           <img
             src={currentPhoto.src}
             alt={currentPhoto.alt}
